@@ -30,8 +30,7 @@ public class App {
 
     post("/results", (request, response) -> {
       HashMap<String,Object> model = new HashMap<String,Object>();
-      request.session().attribute("username", username);
-      model.put("username", username);
+      model.put("username", request.session().attribute("username"));
       int height = Integer.parseInt(request.queryParams("height"));
       int width = Integer.parseInt(request.queryParams("width"));
       int length = Integer.parseInt(request.queryParams("length"));
